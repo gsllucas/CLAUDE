@@ -1,0 +1,63 @@
+{
+  "env": {
+    "CLAUDE_AFK_TIMEOUT_MS": "86400000"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "deny": [
+      "Read(./secrets/**)"
+    ]
+  },
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "(command -v afplay >/dev/null && afplay \"$HOME/.claude/sounds/permission_request.mp3\") || (command -v mpg123 >/dev/null && mpg123 -q \"$HOME/.claude/sounds/permission_request.mp3\") || (command -v ffplay >/dev/null && ffplay -nodisp -autoexit -loglevel quiet \"$HOME/.claude/sounds/permission_request.mp3\") || (command -v paplay >/dev/null && paplay \"$HOME/.claude/sounds/permission_request.mp3\") || powershell -c \"(New-Object Media.SoundPlayer '$env:CLAUDE_PROJECT_DIR\\.claude\\sounds\\permission_request.mp3').PlaySync()\" 2>/dev/null",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "(command -v afplay >/dev/null && afplay \"$HOME/.claude/sounds/stop.mp3\") || (command -v mpg123 >/dev/null && mpg123 -q \"$HOME/.claude/sounds/stop.mp3\") || (command -v ffplay >/dev/null && ffplay -nodisp -autoexit -loglevel quiet \"$HOME/.claude/sounds/stop.mp3\") || (command -v paplay >/dev/null && paplay \"$HOME/.claude/sounds/stop.mp3\") || powershell -c \"(New-Object Media.SoundPlayer '$env:CLAUDE_PROJECT_DIR\\.claude\\sounds\\stop.mp3').PlaySync()\" 2>/dev/null",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "(command -v afplay >/dev/null && afplay \"$HOME/.claude/sounds/pre_compact.mp3\") || (command -v mpg123 >/dev/null && mpg123 -q \"$HOME/.claude/sounds/pre_compact.mp3\") || (command -v ffplay >/dev/null && ffplay -nodisp -autoexit -loglevel quiet \"$HOME/.claude/sounds/pre_compact.mp3\") || (command -v paplay >/dev/null && paplay \"$HOME/.claude/sounds/pre_compact.mp3\") || powershell -c \"(New-Object Media.SoundPlayer '$env:CLAUDE_PROJECT_DIR\\.claude\\sounds\\pre_compact.mp3').PlaySync()\" 2>/dev/null",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true
+  },
+  "effortLevel": "xhigh",
+  "tui": "default",
+  "skipDangerousModePermissionPrompt": true,
+  "verbose": true,
+  "skipAutoPermissionPrompt": true
+}
