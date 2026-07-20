@@ -1,2 +1,2 @@
 # CLAUDE
-My Claude repository for agentic coding
+My personal Claude repository for agentic coding
