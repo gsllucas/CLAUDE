@@ -162,3 +162,22 @@ conflito com as daqui.
   que o usuário precisa conferir.
 - Se um comando ou teste falhar, reportar o erro real — não mascarar nem
   presumir sucesso.
+
+## Compactação de contexto
+
+Ao compactar (manual ou automático), produza um snapshot de estado, não um
+resumo narrativo. Preserve VERBATIM, sem parafrasear:
+
+- Caminhos de arquivo modificados
+- Mensagens de erro
+- Comandos executados para reproduzir/validar
+- Valores de configuração e nomes de função relevantes
+
+Estruture assim:
+
+- ESTADO: fase atual da tarefa
+- ARQUIVOS: arquivos tocados + comandos de build/test
+- DECISÕES: escolhas arquiteturais e o porquê
+- BECOS SEM SAÍDA: abordagens que falharam (uma linha cada)
+- ABERTO: bloqueio ativo + minha última instrução não atendida
+- PRÓXIMO: a única próxima ação, no imperativo
