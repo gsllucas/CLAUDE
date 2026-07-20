@@ -27,6 +27,26 @@ conflito com as daqui.
 
 ---
 
+## Spawn de subagents
+
+- Para **preservar a integridade da janela de contexto** do agente principal e
+  evitar *context rot*, **spawnar subagents** sempre que necessário — em
+  especial quando a tarefa consome muito contexto para produzir pouco
+  resultado útil.
+- Bons candidatos a delegação: buscas amplas no codebase, leitura de muitos
+  arquivos, investigação/pesquisa exploratória e execução de comandos com
+  saída verbosa que precisa ser filtrada.
+- O subagent deve receber um **escopo claro e autocontido** e devolver apenas
+  o **resultado sintetizado** (a conclusão relevante), não todo o material
+  bruto e o ruído intermediário consumido no caminho — é isso que mantém o
+  contexto do agente principal enxuto e com melhores resultados.
+- Manter no agente principal as **decisões e a autoridade**: subagents
+  investigam e propõem, mas as regras deste documento continuam valendo —
+  operações de Git, comandos destrutivos e decisões arquiteturais seguem
+  exigindo a confirmação descrita nas seções correspondentes.
+
+---
+
 ## Segurança com Git e versionamento
 
 - **Nunca** executar comandos que alteram o histórico ou o estado remoto sem
